@@ -9,3 +9,6 @@ class Anime(models.Model):
   aired = models.DateField()
   ended = models.DateField()
   # genres
+
+  def __str__(self) -> str:
+    return self.title
