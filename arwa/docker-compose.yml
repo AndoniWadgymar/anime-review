@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  anime-review:
+    container_name: anime-review
+    image: anime-review:1.0
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "8000:8000"
