@@ -7,7 +7,7 @@ class CreatorSerializer(serializers.ModelSerializer):
     model = Creator
     fields = "__all__"
 
-class AnimeSerializer(serializers):
+class AnimeSerializer(serializers.ModelSerializer):
   class Meta:
     model = Anime
     fields = "__all__"

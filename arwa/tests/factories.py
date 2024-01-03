@@ -1,14 +1,21 @@
-from factory import DjangoModelFactory, Faker
+import factory
+from factory.faker import faker
 
-from anime.models import Anime
+from anime.models import Anime, Creator
 
-class AnimeFactory(DjangoModelFactory):
-  title = Faker("title")
-  creator = Faker("name")
-  rating = Faker("random_int")
-  episodes = Faker("random_int")
-  aired = Faker('date_time_this_decade')
-  ended = Faker('date_time_this_month')
+class CreatorFactory(factory.django.DjangoModelFactory):
+  class Meta:
+    model = Creator
 
+  name = "Eiichirō Oda"
+
+class AnimeFactory(factory.django.DjangoModelFactory):
   class Meta:
     model = Anime
+
+  title = "One Piece"
+  creator = factory.SubFactory(CreatorFactory)
+  rating = 10.0
+  episodes = 1100
+  aired = factory.Faker("date_this_century")
+  ended = factory.Faker("date_this_month")
