@@ -1,4 +1,5 @@
 from django.db import models
+from episode import Episode
 
 # Create your models here.
 class Creator(models.Model):
